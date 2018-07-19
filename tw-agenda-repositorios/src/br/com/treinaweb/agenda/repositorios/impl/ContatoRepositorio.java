@@ -7,8 +7,8 @@ import br.com.treinaweb.agenda.entidades.Contato;
 import br.com.treinaweb.agenda.repositorios.interfaces.AgendaRepositorio;
 
 public class ContatoRepositorio implements AgendaRepositorio<Contato> {
-	
-	private static List<Contato> contatos = new ArrayList<Contato>(); 
+
+	private static List<Contato> contatos = new ArrayList<Contato>();
 
 	@Override
 	public List<Contato> selecionar() {

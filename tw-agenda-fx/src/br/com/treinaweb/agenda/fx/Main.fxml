@@ -1,42 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-	
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.shape.*?>
-	
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.treinaweb.agenda.fx.MainController">
-	<center>
-		<Label BorderPane.alignment="CENTER" text="Região central"></Label>
-	</center>
-	<top>
-		<HBox>
-			<children>
-				<Label text="Cabeçalho"></Label>
-				<Button text="Botão"></Button>
-				<Label text="Cabeçalho"></Label>
-				<Button text="Botão"></Button>
-			</children>
-		</HBox>
-	</top>
-	<bottom>
-		<StackPane BorderPane.alignment="CENTER_RIGHT">
-			<children>
-				<Circle fill="DODGERBLUE" radius="10.0" stroke="BLACK" StackPane.alignment="CENTER_RIGHT"></Circle>
-				<Label text="?" StackPane.alignment="CENTER_RIGHT"></Label>
-			</children>
-		</StackPane>
-	</bottom>
-	<left>
-		<VBox>
-			<children>
-				<Button text="Menu 1"></Button>
-				<Button text="Menu 2"></Button>
-				<Label text="Isso é um label"></Label>
-				<Button text="Menu 3"></Button>
-			</children>
-		</VBox>
-	</left>
-	<right>
-		<Label BorderPane.alignment="CENTER" text="Região da direita"></Label>
-	</right>
-</BorderPane>
+
+
+<VBox maxHeight="420.0" maxWidth="600.0" minHeight="420.0" minWidth="600.0" prefHeight="420.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane prefHeight="41.0" prefWidth="600.0" style="-fx-background-color: #bbb;">
+         <children>
+            <Label layoutX="14.0" layoutY="9.0" text="Minha agenda">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane prefHeight="220.0" prefWidth="600.0" style="-fx-background-color: #eeeeee;">
+         <children>
+            <TableView layoutX="8.0" layoutY="8.0" prefHeight="173.0" prefWidth="583.0">
+              <columns>
+                <TableColumn editable="false" prefWidth="263.0" text="Nome" />
+                <TableColumn editable="false" minWidth="9.0" prefWidth="127.0" text="Idade" />
+                  <TableColumn editable="false" prefWidth="185.0" text="Telefone" />
+              </columns>
+            </TableView>
+            <Button layoutX="8.0" layoutY="186.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="152.0" text="Incluir" />
+            <Button layoutX="168.0" layoutY="186.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="152.0" text="Alterar" />
+            <Button layoutX="327.0" layoutY="186.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="152.0" text="Excluir" />
+         </children>
+      </Pane>
+      <TitledPane collapsible="false" prefHeight="161.0" prefWidth="600.0" text="Informações de contato">
+         <content>
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="274.0" minWidth="10.0" prefWidth="273.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="189.0" minWidth="10.0" prefWidth="113.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Nome:" />
+                  <Label text="Idade:" GridPane.columnIndex="1" />
+                  <Label text="Telefone" GridPane.columnIndex="2" />
+                  <TextField GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets right="10.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets right="10.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="146.0" text="Salvar" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="146.0" text="Cancelar" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+               </children>
+            </GridPane>
+         </content>
+      </TitledPane>
+   </children>
+</VBox>
