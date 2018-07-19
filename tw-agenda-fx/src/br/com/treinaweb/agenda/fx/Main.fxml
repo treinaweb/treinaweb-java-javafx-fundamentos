@@ -8,7 +8,14 @@
 		<Label BorderPane.alignment="CENTER" text="Região central"></Label>
 	</center>
 	<top>
-		<Label BorderPane.alignment="CENTER_LEFT" text="Região superior"></Label>
+		<HBox>
+			<children>
+				<Label text="Cabeçalho"></Label>
+				<Button text="Botão"></Button>
+				<Label text="Cabeçalho"></Label>
+				<Button text="Botão"></Button>
+			</children>
+		</HBox>
 	</top>
 	<bottom>
 		<Label BorderPane.alignment="CENTER_RIGHT" text="Região do rodapé"></Label>
