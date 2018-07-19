@@ -2,6 +2,7 @@
 	
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.shape.*?>
 	
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.treinaweb.agenda.fx.MainController">
 	<center>
@@ -18,7 +19,12 @@
 		</HBox>
 	</top>
 	<bottom>
-		<Label BorderPane.alignment="CENTER_RIGHT" text="Região do rodapé"></Label>
+		<StackPane BorderPane.alignment="CENTER_RIGHT">
+			<children>
+				<Circle fill="DODGERBLUE" radius="10.0" stroke="BLACK" StackPane.alignment="CENTER_RIGHT"></Circle>
+				<Label text="?" StackPane.alignment="CENTER_RIGHT"></Label>
+			</children>
+		</StackPane>
 	</bottom>
 	<left>
 		<VBox>
