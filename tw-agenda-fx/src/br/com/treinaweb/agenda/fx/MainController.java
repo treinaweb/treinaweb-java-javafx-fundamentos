@@ -7,6 +7,8 @@ import java.util.ResourceBundle;
 import br.com.treinaweb.agenda.entidades.Contato;
 import br.com.treinaweb.agenda.repositorios.impl.ContatoRepositorio;
 import br.com.treinaweb.agenda.repositorios.interfaces.AgendaRepositorio;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -40,7 +42,27 @@ public class MainController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		this.tabelaContatos.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-		carregarTabelaContatos();
+		habilitarEdicaoAgenda(false);
+//		this.tabelaContatos.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Contato>() {
+//
+//			@Override
+//			public void changed(ObservableValue<? extends Contato> observable, Contato oldValue, Contato newValue) {
+//				// TODO Auto-generated method stub
+//				if (newValue != null) {
+//					txfNome.setText(newValue.getNome());
+//					txfIdade.setText(String.valueOf(newValue.getIdade()));
+//					txfTelefone.setText(newValue.getTelefone());
+//				}
+//			}
+//		});
+		this.tabelaContatos.getSelectionModel().selectedItemProperty().addListener((observador, contatoAntigo, contatoNovo) -> {
+			if (contatoNovo != null) {
+				txfNome.setText(contatoNovo.getNome());
+				txfIdade.setText(String.valueOf(contatoNovo.getIdade()));
+				txfTelefone.setText(contatoNovo.getTelefone());
+			}
+		});
+		carregarTabelaContatos();		
 	}
 	
 	private void carregarTabelaContatos() {
@@ -55,6 +77,18 @@ public class MainController implements Initializable {
 		}
 		ObservableList<Contato> contatosObservableList = FXCollections.observableArrayList(contatos);
 		this.tabelaContatos.getItems().setAll(contatosObservableList);
+	}
+	
+	private void habilitarEdicaoAgenda(Boolean edicaoEstaHabilitada) {
+		this.txfNome.setDisable(!edicaoEstaHabilitada);
+		this.txfIdade.setDisable(!edicaoEstaHabilitada);
+		this.txfTelefone.setDisable(!edicaoEstaHabilitada);
+		this.botaoSalvar.setDisable(!edicaoEstaHabilitada);
+		this.botaoCancelar.setDisable(!edicaoEstaHabilitada);
+		this.botaoInserir.setDisable(edicaoEstaHabilitada);
+		this.botaoAlterar.setDisable(edicaoEstaHabilitada);
+		this.botaoExcluir.setDisable(edicaoEstaHabilitada);
+		this.tabelaContatos.setDisable(edicaoEstaHabilitada);
 	}
 	
 }
