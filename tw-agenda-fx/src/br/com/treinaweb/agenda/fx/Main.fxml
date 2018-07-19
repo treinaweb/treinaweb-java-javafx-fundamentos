@@ -21,7 +21,14 @@
 		<Label BorderPane.alignment="CENTER_RIGHT" text="Região do rodapé"></Label>
 	</bottom>
 	<left>
-		<Label BorderPane.alignment="CENTER" text="Região da esquerda"></Label>
+		<VBox>
+			<children>
+				<Button text="Menu 1"></Button>
+				<Button text="Menu 2"></Button>
+				<Label text="Isso é um label"></Label>
+				<Button text="Menu 3"></Button>
+			</children>
+		</VBox>
 	</left>
 	<right>
 		<Label BorderPane.alignment="CENTER" text="Região da direita"></Label>
